@@ -159,16 +159,16 @@ if __name__ == "__main__":
     print("=" * 60)
 
     print("\n--- 1. Load and inspect a dataset ---")
-    ds = load_and_inspect("rotten_tomatoes", split="train")
+    ds = load_and_inspect("cornell-movie-review-data/rotten_tomatoes", split="train")
 
     print("\n--- 2. Stream a dataset ---")
-    rows = stream_dataset("rotten_tomatoes", max_rows=3)
+    rows = stream_dataset("cornell-movie-review-data/rotten_tomatoes", max_rows=3)
     for row in rows:
         print(f"  {row['text'][:80]}...")
 
     print("\n--- 3. Convert formats ---")
     small_ds = ds.select(range(500))
-    paths = convert_format(small_ds, "/tmp/data_utils_demo", "rotten_tomatoes_sample")
+    paths = convert_format(small_ds, "/tmp/data_utils_demo", "cornell-movie-review-data/rotten_tomatoes_sample")
 
     print("\n--- 4. Create train/val/test splits ---")
     splits = make_splits(small_ds, train_ratio=0.8, val_ratio=0.1, seed=42)

@@ -1,0 +1,5 @@
+phase 00
+    - docker for ai
+    - terminal 
+    - linux
+    - debugging

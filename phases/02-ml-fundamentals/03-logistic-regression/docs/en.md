@@ -35,7 +35,7 @@ actual: 0   0   0   0   1   1   1   1   1   1
 
 A linear fit might produce predictions like -0.2 at hour 1 and 1.3 at hour 10. These values are not probabilities. They go below 0 and above 1. Worse, a single outlier (someone who studied 50 hours) would drag the entire line, changing predictions for everyone.
 
-Classification needs a function that:
+<mark>Classification needs a function that:</mark>
 - Outputs values between 0 and 1 (probabilities)
 - Creates a sharp transition (a decision boundary)
 - Is not distorted by outliers far from the boundary
@@ -112,13 +112,13 @@ flowchart TD
 
 ### The Decision Boundary
 
-For a 2D input (two features), the decision boundary is the line where:
+<mark style="background-color:#EA7B7B">For a 2D input (two features), the decision boundary is the line where:</mark>
 
 ```
 w1*x1 + w2*x2 + b = 0
 ```
 
-Points on one side get classified as 1, points on the other side as 0. Logistic regression always produces a linear decision boundary. If you need a curved boundary, you either add polynomial features or use a nonlinear model.
+Points on one side get classified as 1, points on the other side as 0. <mark>Logistic regression always produces a linear decision boundary. If you need a curved boundary, you either add polynomial features or use a nonlinear model. </mark>
 
 ### Multi-Class Classification with Softmax
 
@@ -164,7 +164,7 @@ Recall = TP / (TP + FN)
 F1 = 2 * (Precision * Recall) / (Precision + Recall)
 ```
 
-When to prioritize:
+<mark>When to prioritize:</mark>
 - **Precision**: when false positives are costly (spam filter, you do not want to block legitimate email)
 - **Recall**: when false negatives are costly (cancer screening, you do not want to miss a tumor)
 - **F1**: when you need a single balanced metric

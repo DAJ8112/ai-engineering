@@ -1,6 +1,6 @@
 # What Is Machine Learning
 
-> Machine learning is teaching computers to find patterns in data instead of writing rules by hand.
+> <mark>Machine learning is teaching computers to find patterns in data instead of writing rules by hand.</mark>
 
 **Type:** Learn
 **Languages:** Python
@@ -49,7 +49,7 @@ Traditional programming: you write the rules. The program applies them to data t
 
 Machine learning: you provide data and expected outputs. The algorithm discovers the rules.
 
-The "model" that comes out of training IS the rules, encoded as numbers (weights, parameters). It generalizes from examples it has seen to make predictions on data it has never seen.
+<mark>The "model" that comes out of training IS the rules</mark>, encoded as numbers (weights, parameters). It generalizes from examples it has seen to make predictions on data it has never seen.
 
 ### The Three Types of Machine Learning
 
@@ -91,7 +91,7 @@ The three categories above are clean, but real-world ML often blurs the lines.
 
 - **Label propagation:** Build a graph connecting similar data points. Labels spread from labeled nodes to unlabeled neighbors through the graph.
 - **Pseudo-labeling:** Train a model on the labeled data, use it to predict labels for unlabeled data, then retrain on everything. The model bootstraps its own training set.
-- **Consistency regularization:** The model should give the same prediction for an input and a slightly perturbed version of that input. This works even without labels.
+- **<mark style="background-color:#EA7B7B">Consistency regularization:</mark>** The model should give the same prediction for an input and a slightly perturbed version of that input. This works even without labels.
 
 **Self-supervised learning** creates supervision from the data itself. No human labels needed at all. The model creates its own prediction task from the structure of the data.
 
@@ -140,7 +140,7 @@ flowchart LR
 
 **Feature Engineering**: Transform raw data into features the model can use. Turn dates into day-of-week. Normalize numerical columns. Encode categorical variables. Good features matter more than fancy algorithms.
 
-**Split Data**: Divide into training, validation, and test sets. The model trains on training data, you tune hyperparameters on validation data, and you report final performance on test data.
+**Split Data**: Divide into training, validation, and test sets. The model trains on training data, <mark style="background-color:#EA7B7B">you tune hyperparameters on validation data</mark>, and you report final performance on test data.
 
 **Train Model**: Feed training data into an algorithm. The algorithm adjusts internal parameters to minimize a loss function.
 
@@ -148,7 +148,7 @@ flowchart LR
 
 **Deploy**: Put the model into production where it makes predictions on new data.
 
-**Monitor**: Track performance over time. Data distributions change (data drift), and models degrade. When performance drops, retrain.
+**Monitor**: Track performance over time. <mark>Data distributions change (data drift), and models degrade.</mark> When performance drops, retrain.
 
 ### Training, Validation, and Test Splits
 
@@ -204,16 +204,16 @@ flowchart LR
     GF -->|Too much complexity| OF
 ```
 
-**Underfitting**: The model is too simple to capture the patterns in the data. A straight line trying to fit a curved relationship. Training error is high. Test error is high.
+**Underfitting**: The model is too simple to capture the patterns in the data. A straight line trying to fit a curved relationship. <mark>Training error is high. Test error is high.</mark>
 
-**Overfitting**: The model is too complex and memorizes the training data, including its noise. A wiggly curve that passes through every training point but fails on new data. Training error is low. Test error is high.
+**Overfitting**: The model is too complex and memorizes the training data, including its noise. A wiggly curve that passes through every training point but fails on new data. <mark>Training error is low. Test error is high.</mark>
 
 **Good fit**: The model captures real patterns without memorizing noise. Training error and test error are both reasonably low.
 
 Signs of overfitting:
 - Training accuracy is much higher than validation accuracy
 - The model performs well on training data but poorly on new data
-- Adding more training data improves performance (the model was memorizing, not learning)
+- <mark style="background-color:#EA7B7B">Adding more training data improves performance (the model was memorizing, not learning)</mark>
 
 Fixes for overfitting:
 - Get more training data
@@ -242,7 +242,7 @@ This is the mathematical framework behind overfitting and underfitting.
 | Just right | Medium | Medium | Good generalization |
 | Too high (degree-20 polynomial for 10 points) | Low | High | Overfitting |
 
-Total error = Bias^2 + Variance + Irreducible noise
+<mark style="background-color:#EA7B7B">Total error = Bias^2 + Variance + Irreducible noise</mark> <mark>--> is this bias-variance tradeoff?</mark>
 
 You cannot reduce irreducible noise (it is randomness in the data itself). You want to find the sweet spot where bias^2 + variance is minimized.
 
@@ -250,18 +250,19 @@ You cannot reduce irreducible noise (it is randomness in the data itself). You w
 
 There is no single algorithm that works best for every problem. An algorithm that performs well on one class of problems will perform poorly on another. This is why data scientists try multiple algorithms and compare results.
 
-In practice, the choice depends on:
+<mark>In practice, the choice depends on: ---> ask gpt how do our answers depend on these.
 - How much data you have
 - How many features there are
 - Whether the relationship is linear or nonlinear
 - Whether you need interpretability
-- How much compute you can afford
+- How much compute you can afford</mark>
+
 
 ### When NOT to Use Machine Learning
 
 ML is powerful but not always the right tool. Before reaching for a model, ask whether you actually need one.
 
-**Do not use ML when:**
+**<mark>Do not use ML when:</mark>**
 
 - **Rules are simple and well-defined.** Tax calculation, sorting algorithms, unit conversions. If you can write the logic in a few if-statements, a model adds complexity for no benefit.
 - **You have no data or very little data.** ML needs examples to learn from. With 10 data points, you cannot train anything meaningful. Collect data first.
@@ -328,7 +329,7 @@ y = np.array([0] * 100 + [1] * 100)
 
 ### Step 3: Compare Against a Baseline
 
-Every ML model should be compared against a trivial baseline. Here, the baseline predicts a random class. If your ML model does not beat random guessing, something is wrong.
+<mark>Every ML model should be compared against a trivial baseline.</mark> Here, the baseline predicts a random class. If your ML model does not beat random guessing, something is wrong.
 
 ```python
 baseline_preds = rng.choice([0, 1], size=len(y_test))
